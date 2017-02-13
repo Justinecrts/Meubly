@@ -1,5 +1,0 @@
-class ChangeTableName < ActiveRecord::Migration[5.0]
-  def change
-    drop_table :furnitures
-  end
-end
