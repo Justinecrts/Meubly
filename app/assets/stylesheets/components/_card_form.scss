@@ -1,0 +1,21 @@
+.card-form {
+  background: $gray-lighten;
+  padding: 10px 60px;
+  margin: 40px 50px;
+}
+.card-form-text {
+  textarea {
+    min-height: 100px;
+  }
+}
+.card-form-footer {
+  margin-bottom: 40px;
+}
+.form-btn-center {
+  margin: 10px auto;
+  width: 100px;
+}
+.btn-center {
+  margin: 10px auto;
+  width: 180px;
+}
