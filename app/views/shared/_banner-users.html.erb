@@ -1,0 +1,24 @@
+<div class="banner-user">
+  <div class="banner-avatar">
+    <% if @user.avatar? %>
+      <%= link_to user_path(@user) do %>
+        <%= cl_image_tag @user.avatar.path, width: 160, height: 160, crop: :fill, class: "avatar-medium" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(@user) do %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/80x80" %>
+        <%= image_tag avatar_url, class: "avatar-medium" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="banner-intro">
+    <% if @user.pseudo? %>
+      <h4><%= @user.pseudo.capitalize %></h4>
+    <% elsif @user.first_name? %>
+      <h4><%= @user.first_name.capitalize %></h4>
+    <% end %>
+    <% if @user.city? %>
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.city.capitalize %> </p>
+    <% end %>
+  </div>
+</div>
