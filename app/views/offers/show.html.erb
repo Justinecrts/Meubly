@@ -4,7 +4,7 @@
       <div class="media-body">
         <div class="media-section">
           <h2><%= @offer.name %></h2>
-          <%= image_tag "sofa.png" %>
+          <%= cl_image_tag @offer.photo, height: 300, width: 400, crop: :fill %>
         </div>
         <div class="media-section">
           <h2>Description</h2>
