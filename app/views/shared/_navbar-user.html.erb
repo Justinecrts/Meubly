@@ -1,0 +1,20 @@
+<div class="navbar-user">
+  <!-- Left Navigation Datas -->
+  <div class="navbar-user-left hidden-xs hidden-sm">
+    <%= link_to "#", class: "navbar-data navbar-user-item item-active" do %>
+      <i class="fa fa-bookmark" aria-hidden="true"></i> <%= @user_offers.size %> Offres
+    <% end %>
+  </div>
+
+    <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-user-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-user-dropdown-menu">
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
