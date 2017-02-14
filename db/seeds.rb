@@ -7,21 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-Offer.destroy_all
 
-require "faker"
 
-10.times do
-  offer = Offer.new(
-    name: Faker::StarWars.character,
-    image_url: Faker::Company.logo,
-    description: Faker::Team.name,
-    price: 60,
-    address: Faker::Address.street_name,
-    category: Faker::Beer.hop,
-    user_id: 1)
-  offer.save
-end
 
 
 
