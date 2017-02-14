@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="media">
+      <div class="media-body">
+        <div class="media-section">
+          <h2><%= @offer.name %></h2>
+          <%= image_tag "sofa.png" %>
+        </div>
+        <div class="media-section">
+          <h2>Description</h2>
+          <p><%= @offer.description %></p>
+        </div>
+      </div>
+      <div class="media-aside">
+        <div class="media-section">
+          <h2>Price</h2>
+          <p><%= @offer.price %></p>
+        </div>
+        <div class="media-section">
+          <h2>Category</h2>
+          <%= @offer.category %>
+        </div>
+        <div class="media-section">
+          <h2>Location</h2>
+          <%= @offer.address %>
+        </div>
+         <div class="media-section">
+          <h2> <%= @offer.user.first_name %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
