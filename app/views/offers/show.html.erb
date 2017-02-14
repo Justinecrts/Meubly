@@ -41,7 +41,7 @@
           <p><i class="fa fa-pencil-square-o showmyformcategory" aria-hidden="true"></i><%= @offer.category %></p>
             <div class="hidden category_offer">
               <%= simple_form_for [@offer] do |f| %>
-              <%= f.input :category %>
+              <%= f.input :category, collection: Offer::CATEGORY, prompt: "Select a category"%>
               <%= f.submit "Change category", class: "btn btn-primary" %>
                 <% end %>
             </div>
