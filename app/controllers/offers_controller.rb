@@ -34,10 +34,24 @@ class OffersController < ApplicationController
   end
 
   def update
-    @offer.update(params[:offer])
+    if params[:offer][:description]
+      @offer.description = params[:offer][:description]
+    elsif params[:offer][:address]
+      @offer.address = params[:offer][:address]
+    elsif params[:offer][:category]
+      @offer.category = params[:offer][:category]
+    else
+      @offer.price = params[:offer][:price]
+    end
+    @offer.save
+    redirect_to offer_path(@offer)
   end
 
   private
+
+  def offer_field
+
+  end
 
   def sanitize_categories
     categories = []

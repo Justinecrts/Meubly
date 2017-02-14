@@ -9,21 +9,55 @@
         <div class="media-section">
           <h2>Description</h2>
           <p><%= @offer.description %></p>
+          <i class="fa fa-pencil-square-o showmyform" aria-hidden="true"></i>
+
+            <div class="hidden description_offer">
+              <%= simple_form_for [@offer] do |f| %>
+                <%= f.input :description %>
+                <%= f.submit "Change description", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+
         </div>
       </div>
+
       <div class="media-aside">
+
         <div class="media-section">
           <h2>Price</h2>
-          <p><%= @offer.price %></p>
+          <p><i class="fa fa-pencil-square-o showmyformprice" aria-hidden="true"></i><%= @offer.price %></p>
+            <div class="hidden price_offer">
+              <%= simple_form_for [@offer] do |f| %>
+                <%= f.input :price %>
+                  <%= f.submit "Change price", class: "btn btn-primary" %>
+                    <%  link_to offer_path(@offer), method: :update do %>
+                  <% end %>
+                <% end %>
+            </div>
         </div>
+
         <div class="media-section">
           <h2>Category</h2>
-          <%= @offer.category %>
+          <p><i class="fa fa-pencil-square-o showmyformcategory" aria-hidden="true"></i><%= @offer.category %></p>
+            <div class="hidden category_offer">
+              <%= simple_form_for [@offer] do |f| %>
+              <%= f.input :category %>
+              <%= f.submit "Change category", class: "btn btn-primary" %>
+                <% end %>
+            </div>
         </div>
+
         <div class="media-section">
           <h2>Location</h2>
-          <%= @offer.address %>
+          <p><i class="fa fa-pencil-square-o showmyformaddress" aria-hidden="true"></i><%= @offer.address %></p>
+            <div class="hidden address_offer">
+              <%= simple_form_for [@offer] do |f| %>
+                <%= f.input :address %>
+                <%= f.submit "Change address", class: "btn btn-primary" %>
+                <% end %>
+            </div>
         </div>
+
          <div class="media-section">
           <h2> <%= @offer.user.first_name %></h2>
         </div>
