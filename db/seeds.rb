@@ -7,6 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Offer.destroy_all
+
+require "faker"
+
+10.times do
+  offer = Offer.new(
+    name: Faker::StarWars.character,
+    image_url: Faker::Company.logo,
+    description: Faker::Team.name,
+    price: rand(1...50),
+    address: Faker::Address.street_name,
+    category: Faker::Beer.hop,
+    user_id: 1)
+  offer.save
+end
 
 users_attributes = [
   {
@@ -38,4 +53,4 @@ users_attributes = [
   }
 ]
 
-users_attributes.each { |params| User.create!(params) }
+users_attributes.each { |params| User.create!(params)
