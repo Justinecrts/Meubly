@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="card-form">
+        <h2 class= "text-center">Add new offer</h2>
+        <%= simple_form_for(@offer) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :category %>
+        </div>
+        <div class="form-actions text-center">
+        <%= f.button :submit %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
