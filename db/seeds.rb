@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Offer.destroy_all
+
 require "faker"
 
 10.times do
@@ -19,3 +22,35 @@ require "faker"
     user_id: 1)
   offer.save
 end
+
+users_attributes = [
+  {
+    email:         "test@gmail.com",
+    password:      "salutsalut",
+    first_name:    "Quentin",
+    last_name:     "Casaubon",
+    phone_number:  "0678787878",
+    address:       "12 rue gare de Lyon",
+    image_url:     "www.google.com"
+  },
+  {
+    email:         "test2@gmail.com",
+    password:      "salutsalut",
+    first_name:    "Hugues",
+    last_name:     "Thomas",
+    phone_number:  "0678787878",
+    address:       "18 rue montorgueil",
+    image_url:     "www.google.com"
+  },
+  {
+    email:         "test3@gmail.com",
+    password:      "salutsalut",
+    first_name:    "Justine",
+    last_name:     "Courtois",
+    phone_number:  "0678787878",
+    address:       "11 rue Oberkampf",
+    image_url:     "www.google.com"
+  }
+]
+
+users_attributes.each { |params| User.create!(params)
