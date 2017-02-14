@@ -1,1 +1,36 @@
-
+<%= render 'shared/navbar-user' %>
+<%= render 'users/banner-users' %>
+<div class="wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2 class="text-center">Mon dashboard</h2>
+      <% @user_offers.each do |offer| %>
+          <div class="product">
+          <%= link_to offer_path(offer) do %>
+            <img src="#">
+            <div class='product-body link-unstyled'>
+              <h2><%= offer.name %> </h2>
+              <p><%= offer.description %></p>
+            </div>
+          <% end %>
+            <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+              <li>
+                <%= link_to offer_path(offer) do %>
+                  <i class="fa fa-eye""></i>
+                <% end %>
+              </li>
+              <li><a href=""><i class="fa fa-star"></i></a></li>
+              <li>
+              <%= link_to offer_path(offer), method: :delete, data: { confirm: "Confirmez la
+              suppression de #{offer.name}?" } do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>
