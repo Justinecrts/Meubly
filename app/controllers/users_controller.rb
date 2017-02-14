@@ -10,4 +10,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+ def params_user
+    params.require(:user).permit(:photo, :photo_cache)
+  end
+
 end
