@@ -27,6 +27,9 @@
          <div class="media-section">
           <h2> <%= @offer.user.first_name %></h2>
         </div>
+         <div class="media-section">
+          <%= link_to "Réserver", offer_bookings_path(@offer), method: :post %>
+        </div>
       </div>
     </div>
   </div>
