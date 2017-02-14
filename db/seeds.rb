@@ -53,4 +53,4 @@ users_attributes = [
   }
 ]
 
-users_attributes.each { |params| User.create!(params)
+users_attributes.each { |params| User.create!(params) }
