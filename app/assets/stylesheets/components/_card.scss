@@ -1,9 +1,10 @@
 .card {
-  height: 175px;
+  height: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
+
 }
 .card-user {
   position: absolute;
@@ -41,3 +42,4 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
