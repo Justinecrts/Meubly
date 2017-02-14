@@ -21,3 +21,11 @@
   margin-bottom: 20px;
 }
 
+ /* banner devise form */
+.banner-devise {
+  text-align: center;
+  height: 90vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background-position: center center;
+}
