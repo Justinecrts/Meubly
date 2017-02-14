@@ -54,6 +54,10 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     cloudinary (1.1.0)
       aws_cf_signer
       rest-client
@@ -203,6 +207,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  carrierwave
   cloudinary (= 1.1.0)
   devise
   faker
