@@ -9,7 +9,8 @@
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :price %>
-        <%= f.input :category %>
+        <%= f.hint 'Select a category below' %>
+        <%= f.input :category, collection: Offer::CATEGORY, error: 'Selecting a category is mandatory, please select one', prompt: "Select a category"%>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         </div>
@@ -21,3 +22,4 @@
     </div>
   </div>
 </div>
+
