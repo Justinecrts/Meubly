@@ -4,7 +4,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-
+    // javascript for the show view
     $(".showmyform").click(function(){
         $(".description_offer").toggleClass("hidden");
     });
@@ -20,4 +20,6 @@ $(document).ready(function(){
     $(".showmyformcategory").click(function(){
         $(".category_offer").toggleClass("hidden");
     });
+
 });
+
