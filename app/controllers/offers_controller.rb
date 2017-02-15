@@ -2,15 +2,14 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update]
 
   def index
-    if !params[:name].empty? && !sanitize_categories.empty?
+    if !params[:name]&.empty? && !sanitize_categories&.empty?
       @offers = Offer.where("name like ?", params[:name]).where("category like ?", sanitize_categories)
-    elsif !params[:name].empty? && sanitize_categories.empty?
+    elsif !params[:name]&.empty? && sanitize_categories&.empty?
       @offers = Offer.where("name like ?", params[:name])
-    elsif params[:name].empty? && !sanitize_categories.empty?
+    elsif params[:name]&.empty? && !sanitize_categories&.empty?
       @offers = Offer.where("category like ?", sanitize_categories)
-    else
-      @offers = Offer.all
     end
+    @offers = Offer.all unless (params[:name] && !params[:name]&.empty?) || !sanitize_categories.empty?
   end
 
   def show
