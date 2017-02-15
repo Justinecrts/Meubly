@@ -21,5 +21,10 @@ $(document).ready(function(){
         $(".category_offer").toggleClass("hidden");
     });
 
+    $('.tag').click(function() {
+    $(this).css("background-color", "#D23333");
+    $(this).css("color", "white");
+    });
+
 });
 
