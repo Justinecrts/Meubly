@@ -7,11 +7,25 @@
   </div>
 </div>
 <!-- container for user value  -->
-<ul class="flex-container">
-  <li class="flex-item">1</li>
-  <li class="flex-item">2</li>
-  <li class="flex-item">3</li>
-</ul>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+    <h2 class="text-center">Get a new start by being smart</h2>
+      <div class="feature col-xs-12 col-sm-4">
+        <%= image_tag "sofa_360.png" %>
+        <p>Find the finest furniture for your appartement </p>
+      </div>
+      <div class="feature col-xs-12 col-sm-4">
+          <%= image_tag "coins_360.png" %>
+          <p>Save money by renting it instead of buying it</p>
+      </div>
+      <div class="feature col-xs-12 col-sm-4">
+      <%= image_tag "tree_360.png" %>
+        <p>Protect environment by giving a second life to thousands of unused furniture</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- container for categories  -->
 <br>
@@ -30,10 +44,9 @@
     </div>
     <div class="col-xs-12 col-sm-6">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "electro.jpg"%>);">
-        <div class="card-category">Home Appliance</div>
+        <div class="card-category"></div>
         <div class="card-description">
-          <h2>Some stuff</h2>
-          <p>Very cool stuff, useful and smart</p>
+          <h2>Home Appliance</h2>
         </div>
         <a class="card-link" href="#" ></a>
       </div>
@@ -45,10 +58,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "lighting_720.jpg"%>);">
-        <div class="card-category">Lighting</div>
+        <div class="card-category"></div>
         <div class="card-description">
-          <h2>Some stuff</h2>
-          <p>Very cool stuff, useful and smart</p>
+          <h2>Lighting</h2>
         </div>
         <a class="card-link" href="#" ></a>
       </div>
@@ -57,8 +69,7 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "garden_720.jpg"%>);">
         <div class="card-category">Garden</div>
         <div class="card-description">
-          <h2>Some stuff</h2>
-          <p>Very cool stuff, useful and smart</p>
+          <h2>Garden</h2>
         </div>
         <a class="card-link" href="#" ></a>
       </div>
