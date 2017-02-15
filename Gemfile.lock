@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.1)
       actionpack (= 5.0.1)
@@ -62,6 +63,13 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.1)
+    coffee-rails (4.2.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.2.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -83,8 +91,10 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     hashie (3.5.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -158,6 +168,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -229,10 +240,13 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave
   cloudinary (= 1.1.0)
+  coffee-rails
   devise
   faker
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
@@ -242,6 +256,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.0.1)
+  rails-assets-underscore!
   redis
   sass-rails
   simple_form
