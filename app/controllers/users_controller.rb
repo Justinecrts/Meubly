@@ -3,6 +3,13 @@ class UsersController < ApplicationController
 
   def show
     @user_offers = Offer.where(user_id:@user)
+    @customer_bookings = Booking.where(user_id:@user)
+    @owner_bookings = []
+    current_user.offers.each do |offer|
+      offer.bookings.each do |booking|
+        @owner_bookings << booking
+      end
+    end
   end
 
   private
