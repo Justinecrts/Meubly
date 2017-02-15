@@ -3,18 +3,25 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update]
 
   def index
-    if !params[:name].empty? && !sanitize_categories.empty?
-      @offers = Offer.where("name like ?", params[:name]).where("category like ?", sanitize_categories)
-    elsif !params[:name].empty? && sanitize_categories.empty?
-      @offers = Offer.where("name like ?", params[:name])
-    elsif params[:name].empty? && !sanitize_categories.empty?
-      @offers = Offer.where("category like ?", sanitize_categories)
-    else
-      @offers = Offer.all
+    if !params[:name]&.empty? && !sanitize_categories&.empty?
+      @search_result = Offer.where("name like ?", params[:name]).where("category like ?", sanitize_categories)
+    elsif !params[:name]&.empty? && sanitize_categories&.empty?
+      @search_result = Offer.where("name like ?", params[:name])
+    elsif params[:name]&.empty? && !sanitize_categories&.empty?
+      @search_result = Offer.where("category like ?", sanitize_categories)
+    end
+
+    @search_result = Offer.all unless (params[:name] && !params[:name]&.empty?) || !sanitize_categories.empty?
+    @offers = @search_result.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
+      marker.lat offer.latitude
+      marker.lng offer.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
 
   def show
+    @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }
   end
 
   def new
@@ -69,7 +76,7 @@ class OffersController < ApplicationController
   end
 
   def params_offer
-    params.require(:offer).permit(:name, :description, :category, :price, :photo, :photo_cache)
+    params.require(:offer).permit(:name, :description, :address, :category, :price, :photo, :photo_cache)
   end
 
 end
