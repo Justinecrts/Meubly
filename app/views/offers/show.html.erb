@@ -64,8 +64,23 @@
          <div class="media-section">
           <%= link_to "Réserver", offer_bookings_path(@offer), method: :post %>
         </div>
+
+          <!-- datepicker -->
+        <h3>Select a range of location</h3>
+        <div>
+          <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+          <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%"" />
+        </div>
+
       </div>
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+  <% end %>
+
 

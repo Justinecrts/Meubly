@@ -14,5 +14,8 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+<!--     datepicker range framewrok -->
+    <%= yield(:after_js) %>
+
   </body>
 </html>
