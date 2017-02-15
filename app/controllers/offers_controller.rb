@@ -21,7 +21,6 @@ class OffersController < ApplicationController
   end
 
   def show
-    @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }
   end
 
   def new
