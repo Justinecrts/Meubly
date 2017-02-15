@@ -40,7 +40,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.7.2)
+    autoprefixer-rails (6.7.3)
       execjs
     aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
@@ -150,7 +150,7 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
-    pry-rails (0.3.4)
+    pry-rails (0.3.5)
       pry (>= 0.9.10)
     puma (3.7.0)
     rack (2.0.1)
@@ -168,13 +168,10 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.1)
       sprockets-rails (>= 2.0.0)
-<<<<<<< HEAD
     rails-assets-bootstrap-datepicker (1.6.4)
       rails-assets-jquery (>= 1.7.1)
     rails-assets-jquery (3.1.1)
-=======
     rails-assets-underscore (1.8.3)
->>>>>>> 6bca668f68bf6ac26b1e8185ba5d85aa33172c88
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -262,11 +259,8 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.0.1)
-<<<<<<< HEAD
   rails-assets-bootstrap-datepicker!
-=======
   rails-assets-underscore!
->>>>>>> 6bca668f68bf6ac26b1e8185ba5d85aa33172c88
   redis
   sass-rails
   simple_form
