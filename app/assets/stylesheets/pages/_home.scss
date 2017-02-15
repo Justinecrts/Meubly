@@ -47,16 +47,23 @@
   justify-content: space-around;
 }
 
-.flex-item {
-  background: tomato;
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
+.feature img {
+  height: 130px;
+  width: 130px;
 
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
+}
+
+.feature {
+  margin: 50px 0px;
   text-align: center;
+}
+
+.feature p {
+  padding: 50px 0px;
+}
+
+.wrapper {
+  background-color: #eee;
+  margin: 40px 0px;
+  padding: 40px 0px;
 }
