@@ -1,34 +1,67 @@
 <%= render 'shared/navbar-user' %>
 <%= render 'users/banner-users' %>
 <div class="wrapper">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h2 class="text-center">Mon dashboard</h2>
-      <% @user_offers.each do |offer| %>
-          <div class="product">
-          <%= link_to offer_path(offer) do %>
-            <img src="#">
-            <div class='product-body link-unstyled'>
-              <h2><%= offer.name %> </h2>
-              <p><%= offer.description %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2 class="text-center">Request</h2>
+        <% @owner_bookings.each do |booking| %>
+            <div class="product">
+            <%= link_to offer_path(booking.offer) do %>
+              <%= cl_image_tag booking.offer.photo, height: 100, width: 130, crop: :thumb %>
+              <div class='product-body link-unstyled'>
+                <h2><%= booking.offer.name %> </h2>
+                <p><%= booking.status%></p>
+              </div>
+            <% end %>
+            <div class="btn-request">
+              <div class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+              <div class="btn btn-success"> Accept </div>
+              <div class="btn btn-danger"> Decline </div>
+              </div>
+              </div>
             </div>
           <% end %>
-            <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-              <li>
-                <%= link_to offer_path(offer) do %>
-                  <i class="fa fa-eye""></i>
-                <% end %>
-              </li>
-              <li><a href=""><i class="fa fa-star"></i></a></li>
-              <li>
-              <%= link_to offer_path(offer), method: :delete, data: { confirm: "Confirmez la
-              suppression de #{offer.name}?" } do %>
-                <i class="fa fa-trash"></i>
-              <% end %>
-              </li>
-            </ul>
-          </div>
-        <% end %>
+      </div>
     </div>
-  </div
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2 class="text-center">My offers</h2>
+        <% @user_offers.each do |offer| %>
+            <div class="product">
+            <%= link_to offer_path(offer) do %>
+              <%= cl_image_tag offer.photo, height: 100, width: 130, crop: :thumb %>
+              <div class='product-body link-unstyled'>
+                <h2><%= offer.name %> </h2>
+                <p><%= offer.description %></p>
+              </div>
+            <% end %>
+              <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+                <%= link_to offer_path(offer), method: :delete, data: { confirm: "Confirmez la
+                suppression de #{offer.name}?" } do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2 class="text-center">My rent</h2>
+        <% @customer_bookings.each do |booking| %>
+            <div class="product">
+            <%= link_to offer_path(booking.offer) do %>
+              <%= cl_image_tag booking.offer.photo, height: 100, width: 130, crop: :thumb %>
+              <div class='product-body link-unstyled'>
+                <h2><%= booking.offer.name %> </h2>
+                <p><%= booking.status %></p>
+              </div>
+            <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
