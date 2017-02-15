@@ -1,11 +1,10 @@
-
 <div class="container">
   <div class="row">
     <h1 class='text-center title'>Everything you need to furnish your appartment</h1>
     <% @search_result.each do |offer|  %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <div class="card-category"><%= offer.name %></div>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path "#{offer.photo}", height: 300, width: 300,gravity: :center, crop: :fill %>')">
+          <div class="card-category"><h4><%= offer.name %></h4></div>
           <%= link_to "", offer_path(offer), class:'card-link'  %>
         </div>
       </div>
@@ -13,7 +12,6 @@
   </div>
   <div id="map" style="width: 100%; height: 600px;"></div>
 </div>
-
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
         $(document).ready(function() {

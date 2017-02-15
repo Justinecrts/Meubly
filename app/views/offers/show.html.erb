@@ -6,26 +6,27 @@
           <h2><%= @offer.name %></h2>
           <%= cl_image_tag @offer.photo, height: 300, width: 400, crop: :fill %>
         </div>
-        <div class="media-section">
-          <h2>Description</h2>
-          <p><%= @offer.description %></p>
-          <i class="fa fa-pencil-square-o showmyform" aria-hidden="true"></i>
 
+        <div class="media-section">
+          <h3>Description</h3>
+          <p><%= @offer.description %></p>
+          <% if current_user == @offer.user %>
+          <i class="fa fa-pencil-square-o showmyform" aria-hidden="true"></i>
+          <% end %>
             <div class="hidden description_offer">
               <%= simple_form_for [@offer] do |f| %>
                 <%= f.input :description %>
                 <%= f.submit "Change description", class: "btn btn-primary" %>
               <% end %>
             </div>
-
         </div>
       </div>
 
       <div class="media-aside">
-
         <div class="media-section">
-          <h2>Price</h2>
-          <p><i class="fa fa-pencil-square-o showmyformprice" aria-hidden="true"></i><%= @offer.price %></p>
+          <h3>Price</h3>
+          <p> <% if current_user == @offer.user %>
+          <i class="fa fa-pencil-square-o showmyformprice" aria-hidden="true"></i><% end %><%= @offer.price %></p>
             <div class="hidden price_offer">
               <%= simple_form_for [@offer] do |f| %>
                 <%= f.input :price %>
@@ -37,8 +38,8 @@
         </div>
 
         <div class="media-section">
-          <h2>Category</h2>
-          <p><i class="fa fa-pencil-square-o showmyformcategory" aria-hidden="true"></i><%= @offer.category %></p>
+          <h3>Category</h3>
+          <p><% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory" aria-hidden="true"></i><% end %><%= @offer.category %></p>
             <div class="hidden category_offer">
               <%= simple_form_for [@offer] do |f| %>
               <%= f.input :category, collection: Offer::CATEGORY, prompt: "Select a category"%>
@@ -48,8 +49,8 @@
         </div>
 
         <div class="media-section">
-          <h2>Location</h2>
-          <p><i class="fa fa-pencil-square-o showmyformaddress" aria-hidden="true"></i><%= @offer.address %></p>
+          <h3>Location</h3>
+          <p><% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformaddress" aria-hidden="true"></i><% end %><%= @offer.address %></p>
             <div class="hidden address_offer">
               <%= simple_form_for [@offer] do |f| %>
                 <%= f.input :address %>
@@ -58,20 +59,17 @@
             </div>
         </div>
 
-         <div class="media-section">
-          <h2> <%= @offer.user.first_name %></h2>
-        </div>
-         <div class="media-section">
-          <%= link_to "Réserver", offer_bookings_path(@offer), method: :post %>
-        </div>
-
-          <!-- datepicker -->
+          <!-- Rent datepicker  -->
+        <% if current_user != @offer.user %>
         <h3>Select a range of location</h3>
         <div>
           <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
           <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%"" />
         </div>
-
+        <div class="media-section">
+          <%= link_to "Rent it", offer_bookings_path(@offer), method: :post, class:"btn btn-success" %>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
