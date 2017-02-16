@@ -5,8 +5,9 @@
   color: white;
   position: relative;
   border-radius: 10px;
-
+  background-position: center center;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -44,7 +45,9 @@
 .card-link:hover{
   opacity: 0.1;
 }
-.card {
-  background-position: center center;
+.card:hover {
+  transform: scale(1.01);
+  transition: all .3s ease
 }
+
 

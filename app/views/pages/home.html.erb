@@ -7,72 +7,95 @@
   </div>
 </div>
 <!-- container for user value  -->
-<div class="wrapper">
-  <div class="container">
+  <div class="container big-padded">
     <div class="row">
-    <h2 class="text-center">Get a new start by being smart</h2>
+      <h2 class="text-center title">Get a new start with your flat</h2>
       <div class="feature col-xs-12 col-sm-4">
         <%= image_tag "sofa_360.png" %>
         <p>Find the finest furniture for your appartement </p>
       </div>
       <div class="feature col-xs-12 col-sm-4">
-          <%= image_tag "coins_360.png" %>
-          <p>Save money by renting it instead of buying it</p>
+        <%= image_tag "coins_360.png" %>
+        <p>Save money by renting it instead of buying it</p>
       </div>
       <div class="feature col-xs-12 col-sm-4">
-      <%= image_tag "tree_360.png" %>
+        <%= image_tag "tree_360.png" %>
         <p>Protect environment by giving a second life to thousands of unused furniture</p>
+      </div>
+    </div>
+  </div>
+
+<!-- container for categories  -->
+<div class="wrapper">
+  <div class="big-padded">
+    <h2 class="text-center title">Everything you need for your place</h2>
+    <div class="container">
+      <div class="row small-padded">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "furniture_720.jpg"%>);">
+            <div class="card-category"></div>
+            <div class="card-description">
+              <h2>Furniture</h2>
+            </div>
+            <a class="card-link" href="" ></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "electro.jpg"%>);">
+            <div class="card-category"></div>
+            <div class="card-description">
+              <h2>Home Appliance</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "lighting_720.jpg"%>);">
+            <div class="card-category"></div>
+            <div class="card-description">
+              <h2>Lighting</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "garden_720.jpg"%>);">
+            <div class="card-category"></div>
+            <div class="card-description">
+              <h2>Garden</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- container for categories  -->
-<br>
-<br>
+<!-- Your newsletter code -->
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "furniture_720.jpg"%>);">
-        <div class="card-category">Furniture</div>
-        <div class="card-description">
-          <h2>Some stuff</h2>
-          <p>Very cool stuff, useful and smart</p>
-        </div>
-        <a class="card-link" href="#" ></a>
+  <div class="newsletter text-center">
+    <h3>Get news from us</h3>
+    <p>Leave us your mail and get news from us</p>
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@.com">
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "electro.jpg"%>);">
-        <div class="card-category"></div>
-        <div class="card-description">
-          <h2>Home Appliance</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
+      <button type="submit" class="btn btn-default btn-primary">Subscribe</button>
+    </form>
   </div>
 </div>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "lighting_720.jpg"%>);">
-        <div class="card-category"></div>
-        <div class="card-description">
-          <h2>Lighting</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "garden_720.jpg"%>);">
-        <div class="card-category">Garden</div>
-        <div class="card-description">
-          <h2>Garden</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-  </div>
+
+<!-- Your footer code -->
+<div class="footer">
+  <ul class="list-inline">
+  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></li></a>
+  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
+  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
+  </ul>
+  <p>Made with <%= image_tag "https://image.flaticon.com/icons/svg/135/135759.svg", height: 20, width: 20 %> @LeWagon</p>
 </div>

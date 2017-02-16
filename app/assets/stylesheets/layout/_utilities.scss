@@ -5,9 +5,12 @@
  * ------------------------------------- */
 
 // Paddings
-.padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+.small-padded {
+  padding: 1em 0em;
+}
+
+.big-padded {
+  padding: 3em 0em;
 }
 
 // Backgrounds
@@ -25,5 +28,6 @@
 }
 
 .title {
-  padding: 40px;
+  padding: 1em ;
+  font-weight: bolder;
 }
