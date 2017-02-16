@@ -21,7 +21,8 @@ class OffersController < ApplicationController
   end
 
   def show
-    @hashes = Gmaps4rails.build_markers(@offer) do |offer, marker|
+
+    @hash = Gmaps4rails.build_markers(@offer) do |offer, marker|
       marker.lat offer.latitude
       marker.lng offer.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
