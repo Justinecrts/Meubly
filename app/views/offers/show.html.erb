@@ -1,84 +1,104 @@
 <div class="container">
-  <div class="row">
-    <div class="media">
-      <div class="media-body">
-        <div class="media-section">
-          <h2><%= @offer.name %></h2>
+  <div class="row showmyoffer">
+
+      <h2><%= @offer.name %></h2>
+
+        <div class="col-md-4">
           <%= cl_image_tag @offer.photo, height: 300, width: 400, crop: :fill %>
-        </div>
 
-        <div class="media-section">
-          <h3>Description</h3>
+          <h3>Description <% if current_user == @offer.user %> <i class="fa fa-pencil-square-o showmyform editing" aria-hidden="true"></i>  <% end %></h3>
+
           <p><%= @offer.description %></p>
-          <% if current_user == @offer.user %>
-          <i class="fa fa-pencil-square-o showmyform" aria-hidden="true"></i>
+
+
+          <div class="hidden description_offer">
+            <%= simple_form_for [@offer] do |f| %>
+              <%= f.input :description %>
+              <%= f.submit "Change description", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+
+
+          <% if current_user != @offer.user %>
+              <div class="col-md-4 col-md-offset-4">
+
+                    <!-- Rent datepicker  -->
+                <div class="module-card-price">  RENT OF</div>
+                  <div class="module-card">
+                    <div style="display: flex; justify-content: space-between;">
+                      <%= cl_image_tag @offer.user.photo, class: "avatar-medium" %>
+                      <p class="usernameforoffer"><%= @offer.user.first_name %></p>
+                    </div>
+                          <div style="display:flex; justify-content: center; margin-top: 5px;">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right rangedate" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;" />
+                          </div>
+
+                          <div class="module-card-bottom">
+                            <div id="map" style="width: 100%; height: 150px;"></div>
+                          </div>
+
+                      <%= link_to "Book it", offer_bookings_path(@offer), method: :post, class:"btn btn-success" %>
+                  </div>
+              </div>
           <% end %>
-            <div class="hidden description_offer">
-              <%= simple_form_for [@offer] do |f| %>
-                <%= f.input :description %>
-                <%= f.submit "Change description", class: "btn btn-primary" %>
-              <% end %>
-            </div>
-        </div>
-      </div>
 
-      <div class="media-aside">
-        <div class="media-section">
-          <h3>Price</h3>
-          <p> <% if current_user == @offer.user %>
-          <i class="fa fa-pencil-square-o showmyformprice" aria-hidden="true"></i><% end %><%= @offer.price %></p>
-            <div class="hidden price_offer">
-              <%= simple_form_for [@offer] do |f| %>
-                <%= f.input :price %>
-                  <%= f.submit "Change price", class: "btn btn-primary" %>
-                    <%  link_to offer_path(@offer), method: :update do %>
+        <div id="description_offer" class="col-md-4 col-md-offset-4">
+
+          <h3 class="titleoffer">Price <% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformprice editing" aria-hidden="true"></i><% end %></h3>
+            <p><%= @offer.price %></p>
+              <div class="hidden price_offer">
+                <%= simple_form_for [@offer] do |f| %>
+                  <%= f.input :price %>
+                    <%= f.submit "Change price", class: "btn btn-primary" %>
+                      <%  link_to offer_path(@offer), method: :update do %>
+                    <% end %>
                   <% end %>
-                <% end %>
             </div>
-        </div>
 
-        <div class="media-section">
-          <h3>Category</h3>
-          <p><% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory" aria-hidden="true"></i><% end %><%= @offer.category %></p>
-            <div class="hidden category_offer">
-              <%= simple_form_for [@offer] do |f| %>
-              <%= f.input :category, collection: Offer::CATEGORY, prompt: "Select a category"%>
-              <%= f.submit "Change category", class: "btn btn-primary" %>
-                <% end %>
-            </div>
-        </div>
+              <h3 class="titleoffer">Category<% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory editing" aria-hidden="true"></i><% end %></h3>
+              <p class="categorytag"><%= @offer.category %></p>
+              <div class="hidden category_offer">
+                <%= simple_form_for [@offer] do |f| %>
+                  <%= f.input :category, collection: Offer::CATEGORY, prompt: "Select a category"%>
+                    <%= f.submit "Change category", class: "btn btn-primary" %>
+                  <% end %>
+              </div>
 
-        <div class="media-section">
-          <h3>Location</h3>
-          <p><% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformaddress" aria-hidden="true"></i><% end %><%= @offer.address %></p>
+          <h3 class="titleoffer">Location<% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformaddress editing" aria-hidden="true"></i><% end %></h3>
+          <p><%= @offer.address %></p>
             <div class="hidden address_offer">
               <%= simple_form_for [@offer] do |f| %>
                 <%= f.input :address %>
                 <%= f.submit "Change address", class: "btn btn-primary" %>
                 <% end %>
             </div>
-        </div>
-
-          <!-- Rent datepicker  -->
-        <% if current_user != @offer.user %>
-        <h3>Select a range of location</h3>
-        <div>
-          <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-          <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%"" />
-        </div>
-        <div class="media-section">
-          <%= link_to "Rent it", offer_bookings_path(@offer), method: :post, class:"btn btn-success" %>
-        </div>
-        <% end %>
-      </div>
-    </div>
+          </div>
   </div>
+  </div>
+
 </div>
 
 <% content_for(:after_js) do %>
   <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-  <% end %>
+        <%= javascript_tag do %>
+          $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
 
+  <% end %>
 
