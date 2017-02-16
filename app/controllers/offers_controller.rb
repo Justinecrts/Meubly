@@ -4,13 +4,20 @@ class OffersController < ApplicationController
 
   def index
     if !params[:name]&.empty? && !sanitize_categories&.empty?
-      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%").where("category like ?", sanitize_categories)
+      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
+      sanitize_categories.each do |category|
+        @search_result = @search_result.or(Offer.where("category like ?", category))
+      end
     elsif !params[:name]&.empty? && sanitize_categories&.empty?
       @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
     elsif params[:name]&.empty? && !sanitize_categories&.empty?
-      @search_result = Offer.where("category like ?", sanitize_categories)
+      @search_result = Offer.where("category like ?", "youpi")
+      sanitize_categories.each do |category|
+        @search_result = @search_result.or(Offer.where("category like ?", category))
+      end
+    else
+      @search_result = Offer.all
     end
-
     @search_result = Offer.all unless (params[:name] && !params[:name]&.empty?) || !sanitize_categories.empty?
     @offers = @search_result.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
