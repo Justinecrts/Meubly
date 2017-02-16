@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <div class="card-form">
+      <div class="card-form-sign-up">
         <h2 class= "text-center">Sign Up</h2>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
@@ -15,10 +15,11 @@
               <%= f.input :photo_cache, as: :hidden %>
             </div>
             <div class="form-actions text-center">
-              <%= f.button :submit, "Inscription", class: "navbar-wagon-button" %>
+              <%= f.button :submit, "Inscription", class: "button-orange" %>
             </div>
+            <br>
+              <%= render 'devise/shared/links' %>
           <% end %>
-            <%= render 'devise/shared/links' %>
           <br>
       </div>
     </div>
