@@ -28,8 +28,8 @@
 }
 
 .showmyoffer {
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-right: 15px;
+  margin-left: 10px;
 }
 
 .titleoffer {
@@ -56,6 +56,11 @@
   color: white;
 }
 
+.titleoftheoffer {
+  background-color: #34495E;
+  color: white;
+  margin: 0;
+}
 
 .module-card-wrap {
   max-width: 70%;
@@ -73,6 +78,7 @@
   margin-bottom: 5%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .module-card-price {
@@ -80,6 +86,7 @@
   border: 1px solid #34495E;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin-top: 70px;
   font-size: 15px;
   color: white;
   font-weight: bold;
@@ -153,5 +160,38 @@
   text-align: center;
 }
  #map {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
  }
+
+ .datapicker-icon {
+  display:flex;
+  justify-content: center;
+  margin-top: 5px;
+ }
+
+ .daterangepicker .daterangepicker_input i {
+  display: none;
+ }
+
+ .informations {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #AACFD0;
+
+  > div {
+    flex: 0 0 auto;
+    margin-right: 80px;
+  }
+
+ }
+
+.imageborder{
+  background-color: white;
+
+}
+
+.imageborder img {
+  text-align: center;
+  width:90%;
+  height:90%;
+}

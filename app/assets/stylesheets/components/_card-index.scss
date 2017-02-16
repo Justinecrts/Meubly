@@ -1,0 +1,57 @@
+.card-index {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  background-position: center center;
+  background-size: cover !important;
+  margin-bottom: 20px;
+  // box-shadow: 1px 1px 1px #C8C8C8;
+  color: white;
+  h4 {
+    margin: 0;
+  }
+}
+
+.btn-card {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.results {
+  color: #F73F52;
+}
+
+.card-price {
+  position: absolute;
+  border-radius: 7px;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  width: 75px;
+  background-color: #FD8962;
+}
+
+#map-container {
+  width: 450px;
+  box-shadow: 1px 1px 1px #C8C8C8;
+}
+.fixed-map {
+  position: fixed;
+  top: 25px;
+  right: 77px;
+}
+
+.card-index-category {
+  background-color: white;
+  opacity: 0.6;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #454545;
+  height: 75px;
+  padding: 10px;
+}
+// .title {
+// background-color: #34495E;
+// }
