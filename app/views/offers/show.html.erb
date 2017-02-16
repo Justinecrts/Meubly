@@ -24,7 +24,8 @@
               <div class="col-md-4 col-md-offset-4">
 
                     <!-- Rent datepicker  -->
-                <div class="module-card-price">  RENT OF</div>
+                <div class="module-card-price"><span id="finalprice">-</span> € </div>
+                <script>var final_price = <%= @offer.price %></script>
                   <div class="module-card">
                     <div style="display: flex; justify-content: space-between;">
                       <%= cl_image_tag @offer.user.photo, class: "avatar-medium" %>
@@ -39,7 +40,7 @@
                             <div id="map" style="width: 100%; height: 150px;"></div>
                           </div>
 
-                      <%= link_to "Book it", offer_bookings_path(@offer), method: :post, class:"btn btn-success" %>
+                      <%= link_to "Book it", offer_bookings_path(@offer, booking: {days: 1 , final_price: 2}), method: :post, class:"btn btn-success" %>
                   </div>
               </div>
           <% end %>
@@ -99,6 +100,21 @@
         });
       });
     <% end %>
+    <script>
+      var msDay = 60*60*24*1000;
+      var number_of_days = 0;
 
+      $(document).ready(function(){
+      $('.applyBtn').on('click', function(){
+      var start_date = new Date($('input.input-mini[name=daterangepicker_start]').val());
+      var end_date = new Date($('input.input-mini[name=daterangepicker_end]').val());
+      number_of_days = (end_date) - (start_date);
+      number_of_days = (number_of_days)/msDay;
+      var daily_price = <%= @offer.price %>;
+      var final_price = number_of_days * daily_price;
+      $('span#finalprice').html(final_price);
+      });
+    })
+    </script>
   <% end %>
 
