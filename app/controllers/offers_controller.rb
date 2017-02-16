@@ -4,9 +4,9 @@ class OffersController < ApplicationController
 
   def index
     if !params[:name]&.empty? && !sanitize_categories&.empty?
-      @search_result = Offer.where("name like ?", params[:name]).where("category like ?", sanitize_categories)
+      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%").where("category like ?", sanitize_categories)
     elsif !params[:name]&.empty? && sanitize_categories&.empty?
-      @search_result = Offer.where("name like ?", params[:name])
+      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
     elsif params[:name]&.empty? && !sanitize_categories&.empty?
       @search_result = Offer.where("category like ?", sanitize_categories)
     end
