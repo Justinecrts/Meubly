@@ -1,22 +1,49 @@
 <div class="container">
-  <div class="row">
-    <h1 class='text-center title'>Everything you need to furnish your appartment</h1>
-    <% @search_result.each do |offer|  %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path "#{offer.photo}", height: 300, width: 300,gravity: :center, crop: :fill %>')">
-          <div class="card-category"><h4><%= offer.name %></h4></div>
-          <%= link_to "", offer_path(offer), class:'card-link'  %>
+  <h1 class='title'><%= image_tag "search.png" %> we found <span class="results"><%= @search_result.count %></span> results for you :</h1>
+  <div class="row" id="background">
+    <div class="col-md-7">
+      <div class="container-fluid">
+        <div class="row">
+          <% @search_result.each do |offer|  %>
+            <div class="col-xs-12 col-sm-12">
+              <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path "#{offer.photo}", height: 300, width: 300,gravity: :center, crop: :fill %>')">
+                <div class="card-content hidden">
+                  <div class="card-index-category">
+                    <h4><%= offer.name %></h4>
+                  </div>
+                  <%= link_to "Voir l'offre", offer_path(offer), class:'btn btn-primary btn-card'%>
+                  <!-- <button class="btn btn-primary btn-card">Voir l'offre</button> -->
+                </div>
+                <div class="card-price text-center"><%= offer.price %> €</div>
+              </div>
+              <%= link_to "", offer_path(offer), class:'card-link-index'  %>
+            </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="col-md-5">
+      <div id="map-container" class="">
+        <div id="map" style="width: 100%; height: 580px;"></div>
+      </div>
+    </div>
   </div>
-  <div id="map" style="width: 100%; height: 600px;"></div>
+</div>
+
+
+
+
 </div>
     <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
+      <script>
         $(document).ready(function() {
+        var styles = [{"featureType":"water","stylers":[{"color":"#19a0d8"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"},{"weight":6}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#e85113"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efe9e4"},{"lightness":-40}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#efe9e4"},{"lightness":-20}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"lightness":100}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"lightness":-100}]},{"featureType":"road.highway","elementType":"labels.icon"},{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"landscape","stylers":[{"lightness":20},{"color":"#efe9e4"}]},{"featureType":"landscape.man_made","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"lightness":100}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"lightness":-100}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"hue":"#11ff00"}]},{"featureType":"poi","elementType":"labels.text.stroke","stylers":[{"lightness":100}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"hue":"#4cff00"},{"saturation":58}]},{"featureType":"poi","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#f0e4d3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#efe9e4"},{"lightness":-25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#efe9e4"},{"lightness":-10}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"simplified"}]}]
         var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
+        handler.buildMap({
+        provider :{
+        styles: styles
+        },
+        internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
@@ -27,5 +54,13 @@
         }
       });
     });
-  <% end %>
+    $(window).scroll( function(){
+      if($(window).scrollTop() > 203) $("#map-container").addClass("fixed-map");
+      else $("#map-container").removeClass("fixed-map");
+    });
+  </script>
 <% end %>
+
+
+
+
