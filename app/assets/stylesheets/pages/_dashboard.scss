@@ -1,0 +1,38 @@
+
+.dashboard-container {
+  padding: 20px 100px;
+}
+.dashboard-flexbox {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 30px;
+}
+
+.dashboard-flexbox-image {
+  flex: 0 0 25%;
+  border: 1px solid grey;
+  height: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:hover {
+    cursor: pointer;
+    flex: 0 0 27%;
+    transition: all 2s;
+  }
+}
+
+.dashboard-flexbox-description {
+  flex: 1;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  h2 {
+    color: $orange;
+  }
+  p {
+    margin-left: 6px;
+    color: grey;
+  }
+}

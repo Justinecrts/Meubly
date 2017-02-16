@@ -1,9 +1,8 @@
 $(document).ready(function() {
   // navbar transition jQuery script
   $(window).scroll(function(e){
-    if ($(this).scrollTop() > 0) {
+    if ($(this).scrollTop() > 10) {
       $(".navbar-wagon").css({
-        "border-bottom": "1px solid #F7F7F7",
         "background": "white"
       });
       $(".navbar-wagon-link").css({
@@ -16,13 +15,16 @@ $(document).ready(function() {
       $(".dropdown-toggle").css({
         "color": "#333333",
       });
+      $('.navbar-wagon-transparent').addClass('navbar-wagon');
     }
     else {
-      $(".navbar-wagon").css({
-        "background": "transparent",
-        "border-bottom": "none"
+      $(".navbar-wagon-transparent").css({
+        background: "transparent",
       });
-      $(".navbar-wagon-link").css({
+      $(".navbar-wagon").css({
+        background: "transparent",
+      });
+      $(".navbar-wagon-transparent .navbar-wagon-link").css({
         "color": "white"
       });
       $(".navbar-wagon-brand").css({
@@ -32,6 +34,7 @@ $(document).ready(function() {
       $(".dropdown-toggle").css({
         "color": "white",
       });
+      $('.navbar-wagon-transparent').removeClass('navbar-wagon');
     }
   });
 });

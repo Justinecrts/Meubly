@@ -3,7 +3,9 @@
   align-items: center;
   padding: 20px;
   border-radius: 3px;
-  transition: all 0.15s ease;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
 /* Body design */
@@ -11,11 +13,12 @@
   flex: 1 1 auto;
 }
 .product-body h2 {
-  color: #FC5185;
-  font-weight: bold;
-  font-size: 23px;
-  margin-top: 0;
+  color: $orange;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
 }
+
 .product-body p {
   font-weight: lighter;
   color: #999999;
@@ -77,7 +80,6 @@
 
 /* Hover effects */
 .product:hover {
-  background: #f7f7fa;
   cursor: pointer;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {

@@ -1,4 +1,9 @@
-<div class="navbar-wagon navbar-wagon-fixed ">
+<% if current_page?(root_path) %>
+  <div class="navbar-wagon-transparent navbar-wagon-fixed ">
+<% else %>
+  <div class="navbar-wagon navbar-wagon-fixed ">
+<% end %>
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-logo" do %>
     <%= image_tag "logo.svg" %>
@@ -62,4 +67,5 @@
     </div>
   </div>
 </div>
+
 
