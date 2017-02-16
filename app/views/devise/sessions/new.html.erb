@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class="card-form">
-        <h3 class= "text-center">Connexion</h3>
+        <h3 class= "text-center">Sign In</h3>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
@@ -13,7 +13,7 @@
           </div>
 
           <div class="form-actions text-center">
-            <%= f.button :submit, "Log in", class: "navbar-wagon-button" %>
+            <%= f.button :submit, "Log in", class: "button-orange" %>
           </div>
           <br>
         <% end %>
