@@ -1,7 +1,7 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon-transparent navbar-wagon-fixed ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-logo" do %>
-    <%= image_tag "logo.svg" %>
+    <%#= image_tag "logo.svg" %>
     <span class="navbar-wagon-logo"></span>
   <% end %>
 
@@ -43,8 +43,8 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to "Connexion", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Inscription", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Connexion", new_user_session_path, class: "navbar-wagon-item navbar-wagon-transparent-link" %>
+      <%= link_to "Inscription", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-transparent-link" %>
 
     <% end %>
 

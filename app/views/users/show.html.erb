@@ -1,4 +1,5 @@
-<h2 class="text-center">My offers</h2>
+<br>
+<br>
 <div class="tabs">
   <div class="tab active" data-target="#my_offers">OFFERS</div>
   <div class="tab" data-target="#my_rentals">RENTALS</div>
@@ -10,7 +11,9 @@
       <% @user_offers.each do |offer| %>
         <div class="dashboard-flexbox">
           <div class="dashboard-flexbox-image">
+
             <%= cl_image_tag offer.photo %>
+
           </div>
           <div class="dashboard-flexbox-description">
             <h2><%= offer.name %></h2>
