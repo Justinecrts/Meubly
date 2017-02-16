@@ -13,3 +13,20 @@
 .alert-warning {
   background: $red;
 }
+.alert-white {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  left: 48px;
+  margin: 0 auto;
+  width: 80%;
+  height:50px;
+}
+.alert-info-white {
+  background: transparent;
+}
+.alert-warning-white {
+  background: transparent;
+}

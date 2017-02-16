@@ -48,7 +48,7 @@
   width: 100%;
   height: 36px;
   padding: 6px 12px;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.4;
   border-radius: 2px;
   text-decoration: none;
@@ -92,3 +92,34 @@
   border-bottom: 3px solid $orange;
   text-decoration: none;
 }
+
+
+.button-search {
+  margin-left: 10px;
+  padding: 0 10px;
+  line-height: 30px;
+  background-color: $orange;
+  color: white;
+  font-size: 14px;
+  border: 2px solid $orange;
+}
+.button-search:hover {
+  color: white;
+  background: $orange;
+  border-color: $orange;
+}
+
+.btn-medium {
+  color: white;
+  border: 1px solid $orange;
+  background-color:$orange;
+  padding: 10px 15px;
+  font-weight: lighter;
+}
+.btn-medium:hover {
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid $orange;
+  color: $orange;
+}
+

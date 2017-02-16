@@ -1,26 +1,24 @@
-<div class="container">
+<div class="container-grey">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <div class="card-form">
-        <h2 class= "text-center">Add new offer</h2>
+      <div class="card-form-offer">
+        <h4 class= "text-center">Add new offer</h4>
         <%= simple_form_for(@offer) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :price %>
-        <%= f.hint 'Select a category below' %>
         <%= f.input :category, collection: Offer::CATEGORY, error: 'Selecting a category is mandatory, please select one', prompt: "Select a category"%>
         <%= f.input :address %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         </div>
         <div class="form-actions text-center">
-        <%= f.button :submit, "add your offer", class: "navbar-wagon-button" %>
+        <%= f.button :submit, "ADD", class: "btn-medium" %>
         </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-

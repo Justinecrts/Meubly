@@ -5,7 +5,7 @@ $(document).ready(function() {
       $(".navbar-wagon").css({
         "background": "white"
       });
-      $(".navbar-wagon-link").css({
+      $(".navbar-wagon-transparent-link").css({
         "color": "#333333"
       });
       $(".navbar-wagon-brand").css({
@@ -24,7 +24,7 @@ $(document).ready(function() {
       $(".navbar-wagon").css({
         background: "transparent",
       });
-      $(".navbar-wagon-transparent .navbar-wagon-link").css({
+      $(".navbar-wagon-transparent .navbar-wagon-transparent-link").css({
         "color": "white"
       });
       $(".navbar-wagon-brand").css({
