@@ -13,8 +13,15 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.status = "Accepted"
+    @booking.update(booking_params)
     @booking.save
+    redirect_to user_path(current_user)
+  end
+
+  def puts
+    @booking.status = "Declined"
+    @booking.save
+    redirect_to user_path(current_user)
   end
 
   private
@@ -25,5 +32,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:status)
+
   end
 end
