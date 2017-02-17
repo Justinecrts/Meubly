@@ -26,7 +26,7 @@
               <% end %>
             </div>
           </div>
-          <div>
+          <div class="price-offer-show">
             <h3 id="titleoffer">Category<% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory editing" aria-hidden="true"></i><% end %></h3>
             <h4>
               <%= @offer.category %>
@@ -58,7 +58,7 @@
           </p>
           <div class="hidden description_offer">
             <%= simple_form_for [@offer] do |f| %>
-            <%= f.input :description %>
+            <%= f.input :description, as: :text %>
             <%= f.submit "Change description", class: "btn btn-primary" %>
             <% end %>
           </div>

@@ -27,7 +27,6 @@
     <h2>PAS DE BOOKING</h2>
     <% else %>
       <% @owner_bookings.each do |booking| %>
-        <%= link_to  offer_path(offer) do %>
           <div class="dashboard-flexbox">
             <div class="dashboard-flexbox-image">
               <%= cl_image_tag booking.offer.photo %>
@@ -35,30 +34,11 @@
             <div class="dashboard-flexbox-description">
               <h2><%= booking.offer.name %></h2>
               <p>
-                <%= booking.status %>
-              </p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="tab-content dashboard-container hidden" id="my_requests">
-    <% unless @customer_bookings.empty? %>
-      <% @customer_bookings.each do |booking| %>
-          <div class="dashboard-flexbox">
-            <div class="dashboard-flexbox-image">
-              <%= cl_image_tag booking.offer.photo %>
-            </div>
-            <div class="dashboard-flexbox-description">
-              <h2><%= booking.offer.name %></h2>
-              <p>
-                <%= booking.status %>
+                <%= booking.status %> - <%= booking.final_price %> €
               </p>
               <p>
-                <%= booking.final_price %>
+                <%= booking.date %>
               </p>
-
               <% if booking.status == "Pending" %>
                 <div class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
                   <div class="btn-request">
@@ -69,6 +49,28 @@
               <% end %>
             </div>
           </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-content dashboard-container hidden" id="my_requests">
+    <% unless @customer_bookings.empty? %>
+      <% @customer_bookings.each do |booking| %>
+        <%= link_to offer_path(booking.offer) do %>
+          <div class="dashboard-flexbox">
+            <div class="dashboard-flexbox-image">
+              <%= cl_image_tag booking.offer.photo %>
+            </div>
+            <div class="dashboard-flexbox-description">
+              <h2><%= booking.offer.name %></h2>
+              <p>
+                <%= booking.status %> - <%= booking.final_price %> €
+              </p>
+              <p>
+                <%= booking.date %>
+              </p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

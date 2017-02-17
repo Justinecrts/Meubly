@@ -39,46 +39,50 @@
     <h2 class="text-center title">Everything you need for your place</h2>
     <div class="container">
       <div class="row small-padded">
+      <%= link_to offers_path("category[Furniture]": "on") do %>
         <div class="col-xs-12 col-sm-6">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "furniture_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
               <h3>Furniture</h3>
             </div>
-            <a class="card-link" href="" ></a>
           </div>
         </div>
+        <% end %>
+        <%= link_to offers_path("category[Home Appliance]": "on") do %>
         <div class="col-xs-12 col-sm-6">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "electro.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
               <h3>Home Appliance</h3>
             </div>
-            <a class="card-link" href="#" ></a>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
     <div class="container">
       <div class="row">
+      <%= link_to offers_path("category[lighting]": "on") do %>
         <div class="col-xs-12 col-sm-6">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "lighting_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
               <h3>Lighting</h3>
             </div>
-            <a class="card-link" href="#" ></a>
           </div>
         </div>
+        <% end %>
+        <%= link_to offers_path("category[garden]": "on") do %>
         <div class="col-xs-12 col-sm-6">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "garden_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
               <h3>Garden</h3>
             </div>
-            <a class="card-link" href="#" ></a>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
   <br>
     <div class="checkboxes">
     <% Offer::CATEGORY.each do |category| %>
-      <div class="checkbox tag"><label><input name="<%= category %>" type="checkbox"><%= category.capitalize %></label></div>
+      <div class="checkbox"><label><input name="category[<%= category %>]" type="checkbox"><%= category.capitalize %></label></div>
     <% end %>
     </div>
   </div>
