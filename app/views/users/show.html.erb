@@ -33,12 +33,12 @@
             </div>
             <div class="dashboard-flexbox-description">
               <h2><%= booking.offer.name %></h2>
-              <p>
+              <span>
                 <%= booking.status %> - <%= booking.final_price %> €
-              </p>
-              <p>
+              </span>
+              <span>
                 <%= booking.date %>
-              </p>
+              </span>
               <% if booking.status == "Pending" %>
                 <div class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
                   <div class="btn-request">

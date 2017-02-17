@@ -51,7 +51,12 @@
   font-size: 13px;
   line-height: 1.4;
   border-radius: 2px;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.button-facebook:hover {
+  background-color: white;
+  color: #3B5998;
 }
 
 
