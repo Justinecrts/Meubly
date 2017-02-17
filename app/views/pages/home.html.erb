@@ -9,24 +9,32 @@
 <!-- container for user value  -->
   <div class="container big-padded">
     <div class="row">
-      <h2 class="text-center title">Get a new start with your flat</h2>
+      <h4 class="text-center title">Get a new start with your flat</h4>
       <div class="feature col-xs-12 col-sm-4">
-        <%= image_tag "sofa_360.png" %>
-        <p>Find the finest furniture for your appartement </p>
+        <%= image_tag "sofa.svg" %>
+        <p>Find the finest furniture for your appartement.</p>
       </div>
       <div class="feature col-xs-12 col-sm-4">
-        <%= image_tag "coins_360.png" %>
-        <p>Save money by renting it instead of buying it</p>
+        <%= image_tag "money.svg" %>
+        <p>Save money by renting it instead of buying it.</p>
       </div>
       <div class="feature col-xs-12 col-sm-4">
-        <%= image_tag "tree_360.png" %>
-        <p>Protect environment by giving a second life to thousands of unused furniture</p>
+        <%= image_tag "ecology1.svg" %>
+        <p>Protect environment by giving a second life to thousands of unused furniture.</p>
       </div>
     </div>
   </div>
 
+  <div class="big-padded wrapper-grey ">
+    <div class="row">
+      <h2 class="text-center title">Make some extra money</h2>
+        <p class="text-center">Add your furniture and let people rent it</p>
+        <div class="text-center"><%= link_to "ADD MY OFFER", new_offer_path, class:"cta-transparent" %></div>
+    </div>
+  </div>
+
 <!-- container for categories  -->
-<div class="wrapper-grey">
+<div class="wrapper">
   <div class="big-padded">
     <h2 class="text-center title">Everything you need for your place</h2>
     <div class="container">
@@ -35,7 +43,7 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "furniture_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
-              <h2>Furniture</h2>
+              <h3>Furniture</h3>
             </div>
             <a class="card-link" href="" ></a>
           </div>
@@ -44,7 +52,7 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "electro.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
-              <h2>Home Appliance</h2>
+              <h3>Home Appliance</h3>
             </div>
             <a class="card-link" href="#" ></a>
           </div>
@@ -57,7 +65,7 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "lighting_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
-              <h2>Lighting</h2>
+              <h3>Lighting</h3>
             </div>
             <a class="card-link" href="#" ></a>
           </div>
@@ -66,7 +74,7 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "garden_720.jpg"%>);">
             <div class="card-category"></div>
             <div class="card-description">
-              <h2>Garden</h2>
+              <h3>Garden</h3>
             </div>
             <a class="card-link" href="#" ></a>
           </div>
@@ -76,26 +84,11 @@
   </div>
 </div>
 
-<!-- Your newsletter code -->
-<div class="container">
-  <div class="newsletter text-center">
-    <h3>Get news from us</h3>
-    <p>Leave us your mail and get news from us</p>
-    <form class="form-inline">
-      <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@.com">
-      </div>
-      <button type="submit" class="btn btn-default btn-primary">Subscribe</button>
-    </form>
-  </div>
-</div>
-
 <!-- Your footer code -->
-<div class="footer">
-  <ul class="list-inline">
-  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></li></a>
-  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
-  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
-  </ul>
-  <p>Made with <%= image_tag "https://image.flaticon.com/icons/svg/135/135759.svg", height: 20, width: 20 %> @LeWagon</p>
+
+<div class="container-wagon-pin">
+  <div class="wagon-pin">
+    <img src="https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png" />
+  </div>
+  <div class="shadow"></div>
 </div>
