@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('input[name="daterange"]').daterangepicker({
+  $('#booking_fullrange').daterangepicker({
       "startDate": "02/09/2017",
       "endDate": "02/15/2017",
       "opens": "left"
