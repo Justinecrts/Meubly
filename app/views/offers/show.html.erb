@@ -10,6 +10,8 @@
           <div>
               <%= cl_image_tag @offer.user.photo, class: "avatar-large-bordered" %>
           </div>
+
+
           <div>
             <h3 class="titleoffer">Price <% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformprice editing" aria-hidden="true"></i><% end %></h3>
             <h4>
@@ -62,8 +64,8 @@
           </div>
         </div>
       </div>
-       <% if current_user != @offer.user %>
-              <div class="col-md-4 col-md-offset-4">
+      <% if current_user != @offer.user %>
+              <div class="col-md-3">
                     <!-- Rent datepicker  -->
                 <div class="module-card-price"><span id="finalprice">-</span> € </div>
                 <script>var final_price = <%= @offer.price %></script>
@@ -74,10 +76,10 @@
                     </div>
                           <%= simple_form_for [@offer, Booking.new] do |f| %>
                             <%= f.input :fullrange %>
-                            <%= f.submit "Book it" %>
+                            <div id="map" style="width: 100%; height: 150px;"></div>
+                            <%= f.submit "Book it", class: "btn btn-success booktheoffer" %>
                           <% end %>
                           <div class="module-card-bottom">
-                            <div id="map" style="width: 100%; height: 150px;"></div>
                         </div>
                   </div>
               </div>

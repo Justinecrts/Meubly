@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Pending"
     @booking.save
-    raise
     redirect_to user_path(current_user)
   end
 
@@ -46,7 +45,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :final_price, :date, :days )
 
   end
 end
