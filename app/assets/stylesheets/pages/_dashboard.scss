@@ -1,6 +1,6 @@
 
 .dashboard-container {
-  padding: 20px 100px;
+  padding: 20px 140px;
 }
 .dashboard-flexbox {
   display: flex;
@@ -10,7 +10,6 @@
 
 .dashboard-flexbox-image {
   flex: 0 0 25%;
-  border: 1px solid grey;
   height: 150px;
   img {
     width: 100%;
@@ -20,13 +19,13 @@
   &:hover {
     cursor: pointer;
     flex: 0 0 27%;
-    transition: all 2s;
+    transition: all 0.5s;
   }
 }
 
 .dashboard-flexbox-description {
   flex: 1;
-  border: 1px solid grey;
+  border: 1px solid #ECECEC;
   padding: 5px 10px;
   h2 {
     color: $orange;
