@@ -29,7 +29,7 @@ class OffersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
       marker.lat offer.latitude
       marker.lng offer.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+
     end
   end
 
