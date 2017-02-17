@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 90vh;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -24,7 +24,7 @@
  /* banner devise form */
 .banner-devise {
   text-align: center;
-  height: 90vh;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   background-position: center center;
@@ -62,7 +62,7 @@
   font-weight:lighter;
 }
 
-.wrapper {
+.wrapper-grey{
   background-color: #eee;
   margin: 40px 0px;
   padding: 40px 0px;

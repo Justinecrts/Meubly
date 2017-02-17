@@ -1,7 +1,7 @@
 // Your footer style
 
 .footer {
-  background: $blue-brand;
+  background-color: white;
   text-align: center;
   height: 150px;
   padding: 50px;
@@ -9,7 +9,7 @@
     margin: 10px 0 10px 0;
   }
   p {
-    color: white;
+    color: $orange;
     font-weight: 300;
     font-size: 15px
   }
@@ -22,7 +22,7 @@
     margin: 0 30px;
   }
   a {
-    color: white;
+    color: grey;
     transition: all 0.3s ease;
     font-weight: 300;
     &:hover {

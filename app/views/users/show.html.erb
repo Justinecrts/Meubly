@@ -1,84 +1,87 @@
-<%= render 'shared/navbar-user' %>
-<%= render 'users/banner-users' %>
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">
-        <% if @owner_bookings != [] %>
-        <br>
-        <br>
-        <h2 class="text-center">Request</h2>
-        <% @owner_bookings.each do |booking| %>
-        <div class="product">
-          <%= link_to offer_path(booking.offer) do %>
-          <%= cl_image_tag booking.offer.photo, height: 100, width: 130, crop: :thumb %>
-          <div class='product-body link-unstyled'>
-            <h2><%= booking.offer.name %></h2>
-            <p>
-              <%= booking.status %>
-            </p>
+<br>
+<br>
+<div class="tabs">
+  <div class="tab active" data-target="#my_offers">OFFERS</div>
+  <div class="tab" data-target="#my_rentals">RENTALS</div>
+  <div class="tab" data-target="#my_request">REQUESTS</div>
+</div>
+<div class="tab-contents">
+  <div class="tab-content dashboard-container" id="my_offers">
+    <% unless @user_offers.empty? %>
+      <% @user_offers.each do |offer| %>
+        <div class="dashboard-flexbox">
+          <div class="dashboard-flexbox-image">
+
+            <%= cl_image_tag offer.photo %>
+
           </div>
-          <% end %>
-          <% if booking.status == "Pending" %>
-          <div class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <div class="btn-request">
-              <%= link_to " ✔ ", booking_path(id: booking.id, booking: { status: "Accepted" }), method: :patch, class: "btn btn-success" %>
-              <%= link_to " x ", booking_path(id: booking.id, booking: { status: "Declined" }), method: :patch, class: "btn btn-danger" %>
-            </div>
-          </div>
-          <% end %>
-        </div>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">
-        <% if @user_offers != [] %>
-        <br>
-        <br>
-        <h2 class="text-center">My offers</h2>
-        <% @user_offers.each do |offer| %>
-        <div class="product">
-          <%= link_to offer_path(offer) do %>
-          <%= cl_image_tag offer.photo, height: 100, width: 130, crop: :thumb %>
-          <div class='product-body link-unstyled'>
+          <div class="dashboard-flexbox-description">
             <h2><%= offer.name %></h2>
             <p>
               <%= offer.description %>
             </p>
           </div>
-          <% end %>
-          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <%= link_to offer_path(offer), method: :delete, data: { confirm: "Confirmez lasuppression de #{offer.name}?" } do %>
-            <i class="fa fa-trash"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <% if @user_offers != [] %>
-      <h2 class="text-center">My rent</h2>
-      <% @customer_bookings.each do |booking| %>
-      <div class="product">
-        <%= link_to offer_path(booking.offer) do %>
-        <%= cl_image_tag booking.offer.photo, height: 100, width: 130, crop: :thumb %>
-        <div class='product-body link-unstyled'>
-          <h2><%= booking.offer.name %></h2>
-          <p>
-            <%= booking.status %>
-          </p>
         </div>
-        <% end %>
-      </div>
       <% end %>
+    <% end %>
+  </div>
+  <div class="tab-content dashboard-container hidden" id="my_rentals">
+    <% unless @owner_bookings.empty? %>
+      <% @owner_bookings.each do |booking| %>
+        <div class="dashboard-flexbox">
+          <div class="dashboard-flexbox-image">
+            <%= cl_image_tag booking.offer.photo %>
+          </div>
+          <div class="dashboard-flexbox-description">
+            <h2><%= booking.offer.name %></h2>
+            <p>
+              <%= booking.status %>
+            </p>
+          </div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
+  <div class="tab-content dashboard-container hidden" id="my_requests">
+    <% unless @customer_bookings.empty? %>
+      <% @customer_bookings.each do |booking| %>
+        <div class="dashboard-flexbox">
+          <div class="dashboard-flexbox-image">
+            <%= cl_image_tag booking.offer.photo %>
+          </div>
+          <div class="dashboard-flexbox-description">
+            <h2><%= booking.offer.name %></h2>
+            <p>
+              <%= booking.status %>
+            </p>
+            <% if booking.status == "Pending" %>
+              <div class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+                <div class="btn-request">
+                  <%= link_to " ✔ ", booking_path(id: booking.id, booking: { status: "Accepted" }), method: :patch, class: "btn btn-success" %>
+                  <%= link_to " x ", booking_path(id: booking.id, booking: { status: "Declined" }), method: :patch, class: "btn btn-danger" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
