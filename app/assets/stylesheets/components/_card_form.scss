@@ -15,11 +15,17 @@
   }
 }
 
+#background-form {
+  background-color: #D6D6DB;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
 .card-form-offer {
-  background: $gray-lighten;
-  padding: 10px 60px;
-  margin-top: 50px;
-  font-size: 13px;
+    background: #F9F9F9;
+    font-size: 13px;
+    padding: 30px;
+    width: 400px;
   input {
     height: 30px;
     font-size: 13px;

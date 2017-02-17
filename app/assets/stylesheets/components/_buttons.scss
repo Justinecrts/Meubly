@@ -80,7 +80,7 @@
   border-bottom: 2px solid white;
   line-height: 40px;
   background-color: transparent;
-  color: white;
+  color: $orange;
   font-size: 20px;
   width: 100px;
   margin: 20px auto;
@@ -121,5 +121,9 @@
   background-color: white;
   border: 1px solid $orange;
   color: $orange;
+}
+
+.btn-new {
+  width: 100%;
 }
 

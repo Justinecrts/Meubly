@@ -10,7 +10,10 @@
 }
 
 .big-padded {
-  padding: 3em 0em;
+  padding: 1em 0em;
+  h4{
+    margin-bottom:30px;
+  }
 }
 
 // Backgrounds
@@ -28,6 +31,5 @@
 }
 
 .title {
-  padding: 2em ;
-  font-weight: bolder;
+  padding: 10px;
 }
