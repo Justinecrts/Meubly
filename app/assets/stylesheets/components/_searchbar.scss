@@ -23,6 +23,7 @@
   text-decoration: none;
   -webkit-transition: color 0.2s;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .tag::before {
@@ -48,9 +49,13 @@
 }
 
 .tag::before {
-   display: none;
+
 }
 
 .checkboxes {
   margin-top: 15px;
+}
+
+.checkbox {
+
 }
