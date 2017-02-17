@@ -7,7 +7,7 @@ class OffersController < ApplicationController
     if params[:name]&.empty? && params[:category]&.empty?
       @search_result = Offer.all
     else
-      @search_result = Offer.where(name: params[:name]).or(Offer.where(category: params[:category]))
+      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%").or(Offer.where(category: params[:category]))
     end
     # if !params[:name]&.empty? && !sanitize_categories&.empty?
     #   @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
