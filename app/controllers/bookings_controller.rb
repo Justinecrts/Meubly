@@ -4,11 +4,22 @@ class BookingsController < ApplicationController
 
 
   def create
-    @booking = Booking.new
+    @date = params["booking"]["fullrange"]
+    @dates = @date.split(" - ")
+    dates_formated = []
+    @dates.each do |date|
+      days_unformated = date.split("/")
+      d =  DateTime.parse("#{days_unformated[2]}/#{days_unformated[0]}/#{days_unformated[1]}")
+      dates_formated << d
+    end
+    @days = (dates_formated[1]-dates_formated[0]).to_i
+    @final_price = @days * @offer.price
+    @booking = Booking.new(days: @days,date: @date, final_price: @final_price)
     @booking.offer = @offer
     @booking.user = current_user
     @booking.status = "Pending"
     @booking.save
+    raise
     redirect_to user_path(current_user)
   end
 
