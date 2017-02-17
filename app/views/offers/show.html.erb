@@ -11,47 +11,23 @@
               <%= cl_image_tag @offer.user.photo, class: "avatar-large-bordered" %>
           </div>
 
-          <% if current_user != @offer.user %>
-              <div class="col-md-4 col-md-offset-4">
 
-                    <!-- Rent datepicker  -->
-                <div class="module-card-price"><span id="finalprice">-</span> € </div>
-                <script>var final_price = <%= @offer.price %></script>
-                  <div class="module-card">
-                    <div style="display: flex; justify-content: space-between;">
-                      <%= cl_image_tag @offer.user.photo, class: "avatar-medium" %>
-                      <p class="usernameforoffer"><%= @offer.user.first_name %></p>
-                    </div>
-                          <div style="display:flex; justify-content: center; margin-top: 5px;">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right rangedate" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;" />
-                          </div>
-
-                          <div class="module-card-bottom">
-                            <div id="map" style="width: 100%; height: 150px;"></div>
-                          </div>
-
-                      <%= link_to "Book it", offer_bookings_path(@offer, booking: {days: 1 , final_price: 2}), method: :post, class:"btn btn-success" %>
-                  </div>
-              </div>
-          <% end %>
-
-        <div id="description_offer" class="col-md-4 col-md-offset-4">
-
-          <h3 class="titleoffer">Price <% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformprice editing" aria-hidden="true"></i><% end %></h3>
-            <p><%= @offer.price %></p>
-              <div class="hidden price_offer">
-                <%= simple_form_for [@offer] do |f| %>
-                  <%= f.input :price %>
-                    <%= f.submit "Change price", class: "btn btn-primary" %>
-                      <%  link_to offer_path(@offer), method: :update do %>
-                    <% end %>
-                  <% end %>
-
+          <div>
+            <h3 class="titleoffer">Price <% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformprice editing" aria-hidden="true"></i><% end %></h3>
+            <h4>
+              <%= @offer.price %>
+            </h4>
+            <div class="hidden price_offer">
+              <%= simple_form_for [@offer] do |f| %>
+              <%= f.input :price %>
+              <%= f.submit "Change price", class: "btn btn-primary" %>
+              <%  link_to offer_path(@offer), method: :update do %>
+              <% end %>
+              <% end %>
             </div>
           </div>
           <div>
-            <h3 class="titleoffer">Category<% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory editing" aria-hidden="true"></i><% end %></h3>
+            <h3 id="titleoffer">Category<% if current_user == @offer.user %><i class="fa fa-pencil-square-o showmyformcategory editing" aria-hidden="true"></i><% end %></h3>
             <h4>
               <%= @offer.category %>
             </h4>
@@ -95,12 +71,6 @@
             RENT OF
         </div>
         <div class="module-card">
-          <div style="display: flex; justify-content: space-between;">
-            <%= cl_image_tag @offer.user.photo, class: "avatar-medium" %>
-            <p class="usernameforoffer">
-              <%= @offer.user.first_name %>
-            </p>
-          </div>
           <div class="datapicker-icon">
             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
             <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="pull-right rangedate" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;" />
@@ -116,39 +86,12 @@
   </div>
 </div>
 <% content_for(:after_js) do %>
-
-  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-        <%= javascript_tag do %>
-          $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
-        });
-      });
-    <% end %>
-    <script>
-      var msDay = 60*60*24*1000;
-      var number_of_days = 0;
-
-      $(document).ready(function(){
-      $('.applyBtn').on('click', function(){
-      var start_date = new Date($('input.input-mini[name=daterangepicker_start]').val());
-      var end_date = new Date($('input.input-mini[name=daterangepicker_end]').val());
-      number_of_days = (end_date) - (start_date);
-      number_of_days = (number_of_days)/msDay;
-      var daily_price = <%= @offer.price %>;
-      var final_price = number_of_days * daily_price;
-      $('span#finalprice').html(final_price);
-      });
-    })
-    </script>
-  <% end %>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<%= javascript_tag do %>
+$(document).ready(function() {var handler = Gmaps.build('Google');handler.buildMap({ internal: { id: 'map' } }, function() {markers = handler.addMarkers(
+<%= raw @hash.to_json %>
+);handler.bounds.extendWith(markers);handler.fitMapToBounds();if (markers.length == 0) {handler.getMap().setZoom(2);} else if (markers.length == 1) {handler.getMap().setZoom(14);}});});
+<% end %>
+<% end %>
