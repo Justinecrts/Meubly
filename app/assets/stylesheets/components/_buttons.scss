@@ -123,7 +123,20 @@
   color: $orange;
 }
 
-.btn-new {
-  width: 100%;
+.btn-accept{
+  margin-left: 10px;
+  padding: 0 10px;
+  line-height: 30px;
+  background-color: #32B796;
+  color: white !important;
+  font-size: 14px;
 }
 
+.btn-decline{
+  margin-left: 10px;
+  padding: 0 10px;
+  line-height: 30px;
+  background-color: grey;
+  color: white !important;
+  font-size: 14px;
+}
