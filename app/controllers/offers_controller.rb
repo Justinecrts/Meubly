@@ -1,24 +1,30 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_offer, only: [:show, :edit, :update]
+  before_action :sanitize_categories, only: :index
 
   def index
-    if !params[:name]&.empty? && !sanitize_categories&.empty?
-      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
-      sanitize_categories.each do |category|
-        @search_result = @search_result.or(Offer.where("category like ?", category))
-      end
-    elsif !params[:name]&.empty? && sanitize_categories&.empty?
-      @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
-    elsif params[:name]&.empty? && !sanitize_categories&.empty?
-      @search_result = Offer.where("category like ?", "youpi")
-      sanitize_categories.each do |category|
-        @search_result = @search_result.or(Offer.where("category like ?", category))
-      end
-    else
+    if params[:name]&.empty? && params[:category]&.empty?
       @search_result = Offer.all
+    else
+      @search_result = Offer.where(name: params[:name]).or(Offer.where(category: params[:category]))
     end
-    @search_result = Offer.all unless (params[:name] && !params[:name]&.empty?) || !sanitize_categories.empty?
+    # if !params[:name]&.empty? && !sanitize_categories&.empty?
+    #   @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
+    #   sanitize_categories.each do |category|
+    #     @search_result = @search_result.or(Offer.where("category like ?", category))
+    #   end
+    # elsif !params[:name]&.empty? && sanitize_categories&.empty?
+    #   @search_result = Offer.where('name ILIKE ?', "%#{params[:name]}%")
+    # elsif params[:name]&.empty? && !sanitize_categories&.empty?
+    #   @search_result = Offer.where("category like ?", "youpi")
+    #   sanitize_categories.each do |category|
+    #     @search_result = @search_result.or(Offer.where("category like ?", category))
+    #   end
+    # else
+    #   @search_result = Offer.all
+    # end
+    # @search_result = Offer.all unless (params[:name] && !params[:name]&.empty?) || !sanitize_categories.empty?
     @offers = @search_result.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
       marker.lat offer.latitude
@@ -76,11 +82,11 @@ class OffersController < ApplicationController
   def sanitize_categories
     categories = []
     Offer::CATEGORY.each do |category|
-      if params[category].present?
+      if params[:category] && params[:category][category].present?
         categories << category
       end
     end
-    categories.compact
+    params[:category] = categories.compact
   end
 
   def set_offer
